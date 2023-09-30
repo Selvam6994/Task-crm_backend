@@ -23,7 +23,7 @@ export function managerSignUp() {
                 service: "gmail",
                 auth: {
                     user: "selvamdev6994@gmail.com",
-                    pass: "bjll mjgs find hnnj",
+                    pass: process.env.EMAIL_PASSWORD,
                 },
             });
 

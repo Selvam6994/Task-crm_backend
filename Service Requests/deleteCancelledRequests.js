@@ -1,7 +1,8 @@
+import { advisorAuth } from "../Advisor api/advisorAuth.js";
 import { app, client } from "../index.js";
 
 export function deleteCancelledRequests() {
-    app.delete("/deleteCancelledRequests", async function (request, response) {
+    app.delete("/deleteCancelledRequests",advisorAuth, async function (request, response) {
         const { name, email, phone, vehicleNumber, serviceRequirements, date } = await request.body;
         const findData = await client.db("CRM").collection("Service Requests").findOne({
             name: name,

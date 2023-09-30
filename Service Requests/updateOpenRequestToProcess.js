@@ -1,7 +1,8 @@
+import { advisorAuth } from "../Advisor api/advisorAuth.js";
 import { app, client } from "../index.js";
 
 export function updateOpenRequestToProcess() {
-    app.put("/serviceInProcess", async function (request, response) {
+    app.put("/serviceInProcess",advisorAuth, async function (request, response) {
         const { name, email, phone, vehicleNumber, serviceRequirements, date } = await request.body;
         const findData = await client
             .db("CRM")

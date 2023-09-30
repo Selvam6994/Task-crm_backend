@@ -1,12 +1,11 @@
-import { adminAuth } from "../Admin api/adminAuth.js";
 import { app, client } from "../index.js";
 
-export function getQualifiedLeads() {
-  app.get("/getQualifiedLeads", async function (request, response) {
+export function getAdmin() {
+  app.get("/getAdminData", async function (request, response) {
     const getData = await client
       .db("CRM")
-      .collection("Leads")
-      .find({ status: "qualified" })
+      .collection("Admin Data")
+      .find({})
       .toArray();
     if (getData) {
       response.status(200).send(getData);

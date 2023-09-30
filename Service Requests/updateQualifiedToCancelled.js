@@ -1,7 +1,8 @@
+import { advisorAuth } from "../Advisor api/advisorAuth.js";
 import { app, client } from "../index.js";
 
 export function updateQualifiedToCancelled() {
-    app.put("/cancelledLeads", async function (request, response) {
+    app.put("/cancelledLeads",advisorAuth, async function (request, response) {
         const { name, email, phone, requirements } = await request.body;
         const findData = await client.db("CRM").collection("Leads").findOne({
             name: name,

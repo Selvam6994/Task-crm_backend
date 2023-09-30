@@ -1,3 +1,5 @@
+import { adminAuth } from "../Admin api/adminAuth.js";
+import { advisorAuth } from "../Advisor api/advisorAuth.js";
 import { app, client } from "../index.js";
 
 export function getCancelledRequests() {

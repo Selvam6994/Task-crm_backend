@@ -1,7 +1,8 @@
+import { advisorAuth } from "../Advisor api/advisorAuth.js";
 import { app, client } from "../index.js";
 
 export function addNewServiceRequest() {
-    app.post("/addServiceRequests", async function (request, response) {
+    app.post("/addServiceRequests",advisorAuth, async function (request, response) {
         const { name, email, phone, vehicleNumber, serviceRequirements, date } = await request.body;
         const findData = await client
             .db("CRM")

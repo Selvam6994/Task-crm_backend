@@ -14,7 +14,7 @@ export function managerLogin() {
             const inputPin = pin.toString();
             const passwordCheck = await bcrypt.compare(inputPin, storedPassword);
             if (passwordCheck == true) {
-                let token = jwt.sign({ email: existingUser.email }, secretKey);
+                let token = jwt.sign({ email: existingUser.email,name:existingUser.name }, secretKey);
                 response
                     .status(200)
                     .send({ message: "Logged in successfully", token: token });
